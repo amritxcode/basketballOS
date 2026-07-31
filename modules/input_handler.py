@@ -22,7 +22,7 @@ def add_practice():
         "ft_made": ft_made,
         "ft_attempted": ft_attempted,
         "vertical_cm": vertical_cm,
-        "sleep_hourgit git remote add origin https://github.com/amritxcode/basketballOS.gits": sleep_hours,
+        "sleep_hour": sleep_hours,
         "energy": energy,
         "notes": notes
     }

@@ -1,4 +1,6 @@
-from Personal_Projects.basketballOS.modules.input_handler import add_practice
+from modules.input_handler import add_practice
+from modules.storage import save_practice
+
 
 def display_menu():
     print ('''
@@ -19,7 +21,9 @@ while True:
         user_input = int(input("Choose an option(1-5): "))
         match user_input:
             case 1:
-                add_practice()
+                practice = add_practice()
+                save_practice(practice)
+                print("Practice saved successfully")
             case 2:
                 print("View history function coming soon")
             case 3:
