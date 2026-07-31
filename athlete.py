@@ -32,4 +32,3 @@ while True:
                 print("Enter a valid number between 1 to 5.")
     except ValueError:
         print("Please enter a valid number.")
-
