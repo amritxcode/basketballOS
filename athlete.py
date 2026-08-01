@@ -1,5 +1,7 @@
 from modules.input_handler import add_practice
 from modules.storage import save_practice
+from modules.storage import load_practices
+from modules.analytics import calculate_percentage
 
 
 def display_menu():
@@ -25,7 +27,40 @@ while True:
                 save_practice(practice)
                 print("Practice saved successfully")
             case 2:
-                print("View history function coming soon")
+                practices = load_practices()
+
+                print("\n--- Practice History ---")
+
+                for practice in practices:
+                    fg_percentage = calculate_percentage(
+                        practice["fg_made"],
+                        practice["fg_attempted"]
+                    )
+                    three_percentage = calculate_percentage(
+                        practice["three_made"],
+                        practice["three_attempted"]
+                        )
+                    ft_percentage = calculate_percentage(
+                        practice["ft_made"],
+                        practice["ft_attempted"]
+                    )
+                    date = practice["date"]
+                    duration = practice["duration_min"]
+                    vertical = practice["vertical_cm"]
+                    energy = practice["energy"]
+                    sleep = practice["sleep_hours"]
+                    
+                    print("=" * 40)
+                    print(f"Date       : {date}")
+                    print(f"Duration   : {duration} min")
+                    print(f"FG%        : {fg_percentage}")
+                    print(f"3PT%       : {three_percentage}")
+                    print(f"FT%        : {ft_percentage}")
+                    print(f"Vertical   : {vertical} cm")
+                    print(f"Energy     : {energy}/10")
+                    print(f"Sleep      : {sleep} hrs")
+                    print("=" * 40)
+                    print()
             case 3:
                 print("Analyze Performance funct coming soon")
             case 4:

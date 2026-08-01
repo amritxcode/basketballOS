@@ -14,3 +14,22 @@ def save_practice(practice):
         if not file_exists:
             writer.writeheader()
         writer.writerow(practice)
+
+def load_practices():
+    practices = []
+    with open(CSV_PATH, "r") as file:
+        reader = csv.DictReader(file)
+        for row in reader:
+            row["duration_min"] = int(row["duration_min"])
+            row["fg_made"] = int(row["fg_made"])
+            row["fg_attempted"] = int(row["fg_attempted"])
+            row["three_made"] = int(row["three_made"])
+            row["three_attempted"] = int(row["three_attempted"])
+            row["ft_made"] = int(row["ft_made"])
+            row["ft_attempted"] = int(row["ft_attempted"])
+            row["vertical_cm"] = int(row["vertical_cm"])
+            row["energy"] = int(row["energy"])
+            row["sleep_hours"] = float(row["sleep_hours"])
+            practices.append(row)
+            
+    return practices
