@@ -32,7 +32,7 @@ def analyze_performance(practices):
             best_vertical += practice["vertical_cm"]
         total_energy += practice["energy"]
         total_sleep += practice["sleep_hours"]
-         total_sessions = len(practices)
+        total_sessions = len(practices)
 
     average_vertical = round(total_vertical / total_sessions, 2)
     average_energy = round(total_energy / total_sessions, 2)
